@@ -1,0 +1,83 @@
+# Copyright (c) 1993-2009 Microsoft Corp.
+#
+# This is a sample HOSTS file used by Microsoft TCP/IP for Windows.
+#
+# This file contains the mappings of IP addresses to host names. Each
+# entry should be kept on an individual line. The IP address should
+# be placed in the first column followed by the corresponding host name.
+# The IP address and the host name should be separated by at least one
+# space.
+#
+# Additionally, comments (such as these) may be inserted on individual
+# lines or following the machine name denoted by a '#' symbol.
+#
+# For example:
+#
+#      102.54.94.97     rhino.acme.com          # source server
+#       38.25.63.10     x.acme.com              # x client host
+
+# localhost name resolution is handled within DNS itself.
+#	127.0.0.1       localhost
+#	::1             localhost
+
+192.168.19.144 T3K-PICTO-SETUP-2 T3K-PICTO-SETUP-2-app FirstApplicationServerPicto
+192.168.19.143 T3K-PICTO-SETUP1 T3K-PICTO-SETUP1-app
+192.168.20.23	xen22-b	xen22-b-app	
+192.168.70.23	xen22-b-aut	
+
+192.168.20.22	xen22-a	xen22-a-app 
+192.168.70.22	xen22-a-aut	
+
+192.168.19.153	T3K-WB-1	T3K-WB-1-app
+192.168.19.151	T3K-WB-RED-1	T3K-WB-RED-1-app
+
+192.168.27.221	hp23	hp23-app
+
+192.168.19.148	T3K-XDS-A	T3K-XDS-A-app
+192.168.70.157	T3K-XDS-A-aut
+
+192.168.19.149	T3K-XDS-B	T3K-XDS-B-app
+192.168.70.158	T3K-XDS-B-aut 
+
+192.168.20.81	hp01	hp01-app
+
+192.168.20.91	xen03-a	xen03-a-app FirstApplicationServer	
+192.168.70.93	xen03-a-aut	
+192.168.20.92	xen03-b	xen03-b-app	
+192.168.70.92	xen03-b-aut
+
+192.168.26.101	GGNHDCI062	GGNHDCI062-app
+192.168.27.207	winsrv01mt11	winsrv01mt11-app
+192.168.64.207	winsrv01mt11-aut
+
+192.168.19.152	T3K-WB-2	T3K-WB-2-app
+
+192.168.27.8	hp15-a	hp15-a-app
+192.168.27.9	hp15-b	hp15-b-app
+
+192.168.19.132	COMOSVM2	COMOSVM2-app 
+
+192.168.19.131	COMOSVM1	COMOSVM1-app
+192.168.70.131	COMOSVM1-aut 
+
+192.168.27.175	winsrv01hp7	winsrv01hp7-app
+
+192.168.28.2	hp45-a	hp45-a-app
+192.168.75.2	hp45-a-aut
+
+192.168.28.3	hp45-b	hp45-b-app
+192.168.75.3	hp45-b-aut 
+192.168.19.150	T3K-WB-RED-2	T3K-WB-RED-2-app
+192.168.27.18 	hp18-a	hp18-a-app
+
+192.168.19.121 INGGN05808WSCT INGGN05808WSCT-app
+169.254.231.78 INGGN05808WSCT-aut
+
+192.168.27.203	hp25-a-a	hp25-a-a-app 
+192.168.64.203	hp25-a-a-aut	
+
+
+192.168.27.204	hp25-a-b	hp25-a-b-app	
+192.168.64.204	hp25-a-b-aut
+
+192.168.27.103 hp29  hp29-app 
