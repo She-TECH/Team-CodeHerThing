@@ -1,5 +1,5 @@
 <style>
-        .card {
+   .card {
             
             height: 40px;
             width: 200px;
@@ -33,14 +33,13 @@
           }
           
           .vl {
-  border-left: 1px solid black;
-  height: 500px;
-}
-        
-        </style>
-        
-        
-        <div class="card highlight-card card-small">
+             border-left: 1px solid black;
+              height: 500px;
+          } 
+</style>
+
+
+<!-- <div class="card highlight-card card-small">
         
           <span style="font-size: 25px;">Details</span> 
         
@@ -51,47 +50,133 @@
 <div style="float:left">
 <div>
 <div style="float:left">
-    <div style="font-size: 19px;margin-left: 36%;"><b>New</b></div>
-    <div style="display: block; height: 250px; width: 500px;margin-left: -8%">
-    <canvas baseChart
-            [data]="pieChartData"
-            [labels]="pieChartLabels"
-            [chartType]="pieChartType"
-            (chartHover)="chartHovered($event)"
-            (chartClick)="chartClicked($event)"></canvas>
-    </div>
+    
   </div> 
 
   <div style="float:left">
-    <div style="font-size: 19px;margin-left: 4%;"><b>New</b></div>
-    <div style="display: block; height: 250px; width: 500px;margin-left: -45%;">
-    <canvas baseChart
-            [data]="pieChartData"
-            [labels]="pieChartLabels"
-            [chartType]="pieChartType"
-            (chartHover)="chartHovered($event)"
-            (chartClick)="chartClicked($event)"></canvas>
-    </div>
+    
   </div> 
   
 </div>
 
 <div>
         <div style="float:left;padding-top: 5%;">
-                <div style="font-size: 19px;margin-left: 69%;"><b>New</b></div>
-                <div style="display: block; height: 250px; width: 500px;margin-left: 26%;">
-                <canvas baseChart
-                        [data]="pieChartData"
-                        [labels]="pieChartLabels"
-                        [chartType]="pieChartType"
-                        (chartHover)="chartHovered($event)"
-                        (chartClick)="chartClicked($event)"></canvas>
-                </div>
+                
         </div>     
 </div>
-</div>
+</div>   -->
+
+
+<div class="card highlight-card card-small">
+
+  <span style="font-size: 25px;">Details</span> 
+
+</div>  
+
+<div><hr></div>
+
+ <div class="cotainer">
+  <div class="row">
+    <div class="col-md-6" style ="border-right: 1px solid rgb(223, 219, 219);">
+
+      <div class="row">
+        
+      <div class="col-md-6" style="font-size: 19px;"><b style="margin-left: 120px;">New</b></div>
+      <div class="col-md-6" style="font-size: 19px;"><b style="margin-left: 118px;">Technology</b></div>
+
+      </div>
+
+      <div class="row">          
+          
+          <div class="col-md-6" style="height: 250px;width: 200px;">
+            <canvas width="400" height="400" baseChart [data]="pieChartData" [labels]="pieChartLabels1" [chartType]="pieChartType"
+              (chartHover)="chartHovered($event)" (chartClick)="chartClicked1(firstChart)"></canvas>
+          </div>
+         
+          <div class="col-md-6" style="height: 250px;width: 200px;">
+            <canvas width="400" height="400" baseChart [data]="pieChartData" [labels]="pieChartLabels2" [chartType]="pieChartType"
+              (chartHover)="chartHovered($event)" (chartClick)="chartClicked2(secChart);"></canvas>
+          </div>
+        <div class="col-md-6">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-4">
+        </div>
+        <div class="col-md-6" style="font-size: 19px;margin-top: 70px;"><b>Cust satisfaction</b></div>  
+        </div>
+
+      <div class="row" style="margin-top: 20px;">
+        <div class="col-md-3">
+        </div>
+          <div class="col-md-6" style="height: 250px;  width: 200px;">
+            <canvas width="400" height="400" baseChart [data]="pieChartData" [labels]="pieChartLabels3" [chartType]="pieChartType"
+              (chartHover)="chartHovered($event)" (chartClick)="chartClicked3(thirdChart)"></canvas>
+          </div>
+      </div>
+    </div>
 
 
 
 
+    <div class="col-md-6" >
+      <div class="row">
+        
+        <div *ngIf="firstChart" class="col-md-12">
+          <p>firstChart displayed</p>
+        </div>
+        <div *ngIf="secChart" class="col-md-12">
+          secChart displayed
+        </div>
+        <div *ngIf="thirdChart" class="col-md-12">
+          thirdChart displayed
+        </div>
+      </div>
+    </div>
+  </div>
+</div>    
 
+
+<!-- <div style="float:left">
+  <div>
+  <div style="float:left">
+      <div style="font-size: 19px;margin-left: 36%;"><b>New</b></div>
+      <div style="display: block; height: 250px; width: 500px;margin-left: -8%">
+      <canvas baseChart
+              [data]="pieChartData"
+              [labels]="pieChartLabels"
+              [chartType]="pieChartType"
+              (chartHover)="chartHovered($event)"
+              (chartClick)="chartClicked($event)"></canvas>
+      </div>
+    </div> 
+  
+    <div style="float:left">
+      <div style="font-size: 19px;margin-left: 4%;"><b>New</b></div>
+      <div style="display: block; height: 250px; width: 500px;margin-left: -45%;">
+      <canvas baseChart
+              [data]="pieChartData"
+              [labels]="pieChartLabels"
+              [chartType]="pieChartType"
+              (chartHover)="chartHovered($event)"
+              (chartClick)="chartClicked($event)"></canvas>
+      </div>
+    </div> 
+    
+  </div>
+  
+  <div>
+          <div style="float:left;padding-top: 5%;">
+                  <div style="font-size: 19px;margin-left: 69%;"><b>New</b></div>
+                  <div style="display: block; height: 250px; width: 500px;margin-left: 26%;">
+                  <canvas baseChart
+                          [data]="pieChartData"
+                          [labels]="pieChartLabels"
+                          [chartType]="pieChartType"
+                          (chartHover)="chartHovered($event)"
+                          (chartClick)="chartClicked($event)"></canvas>
+                  </div>
+          </div>     
+  </div>
+  </div>  -->
