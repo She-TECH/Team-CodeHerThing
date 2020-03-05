@@ -49,8 +49,9 @@
       <div style="font-size: 19px;margin-left: 41%;"><b>Siemens</b></div>
       <div style="display: block; height: 250px; width: 500px;">
       <canvas baseChart
-              [data]="pieChartDataOne"
+              [data]="pieChartDataSiemens"
               [labels]="pieChartLabels"
+              [colors]="pieChartColor"
               [chartType]="pieChartType"
               (chartHover)="chartHovered($event)"
               (chartClick)="chartClicked($event)"></canvas>
@@ -61,9 +62,10 @@
       <div style="font-size: 19px;margin-left: 41%;"><b>ABB</b></div>
     <div style="display: block; height: 250px; width: 500px;">    
       <canvas baseChart
-              [data]="pieChartData"
+              [data]="pieChartDataAbb"
               [labels]="pieChartLabels"
               [chartType]="pieChartType"
+              [colors]="pieChartColor"
               (chartHover)="chartHovered($event)"
               (chartClick)="chartClicked($event)"></canvas>
     </div> 
@@ -75,9 +77,10 @@
     <div style="display: block; height: 250px; width: 500px;">
       
       <canvas baseChart
-              [data]="pieChartData"
+              [data]="pieChartDataRockwell"
               [labels]="pieChartLabels"
               [chartType]="pieChartType"
+              [colors]="pieChartColor"
               (chartHover)="chartHovered($event)"
               (chartClick)="chartClicked($event)"></canvas>
     </div> 
@@ -88,9 +91,10 @@
     <div style="display: block; height: 250px; width: 500px;">
       
       <canvas baseChart
-              [data]="pieChartData"
+              [data]="pieChartDataSchinder"
               [labels]="pieChartLabels"
               [chartType]="pieChartType"
+              [colors]="pieChartColor"
               (chartHover)="chartHovered($event)"
               (chartClick)="chartClicked($event)"></canvas>
     </div> 
