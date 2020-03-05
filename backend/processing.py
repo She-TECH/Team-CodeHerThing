@@ -133,14 +133,35 @@ def newdomaindrill():
         df = pd.read_excel('..\\new\\NewKeywords.xls', sheet_name=i)
         book = xlrd.open_workbook('..\\new\\NewKeywords.xls')
         sheet_names = book.sheet_names()
+        sheet_names = book.sheet_names()
         xl_sheet = book.sheet_by_name(sheet_names[i])
+        xl_sheetname = xl_sheet.name[:-4]
         workbook1 = xlwt.Workbook()
-        worksheet2 = workbook1.add_sheet(xl_sheet.name + "DI");
-        worksheet3 = workbook1.add_sheet(xl_sheet.name + "SI");
-        worksheet4 = workbook1.add_sheet(xl_sheet.name + "MO");
-        worksheet5 = workbook1.add_sheet(xl_sheet.name + "Engg");
-        worksheet6 = workbook1.add_sheet(xl_sheet.name + "Healthcare");
-        row_final = 0
+        worksheet2 = workbook1.add_sheet(xl_sheetname + "DI");
+        worksheet2.write(0, 0, 'Summary')
+        worksheet2.write(0, 1, 'URL')
+        worksheet2.write(0, 2, 'Snippet')
+        worksheet3 = workbook1.add_sheet(xl_sheetname + "SI");
+        worksheet3.write(0, 0, 'Summary')
+        worksheet3.write(0, 1, 'URL')
+        worksheet3.write(0, 2, 'Snippet')
+        worksheet4 = workbook1.add_sheet(xl_sheetname + "MO");
+        worksheet4.write(0, 0, 'Summary')
+        worksheet4.write(0, 1, 'URL')
+        worksheet4.write(0, 2, 'Snippet')
+        worksheet5 = workbook1.add_sheet(xl_sheetname + "Engg");
+        worksheet5.write(0, 0, 'Summary')
+        worksheet5.write(0, 1, 'URL')
+        worksheet5.write(0, 2, 'Snippet')
+        worksheet6 = workbook1.add_sheet(xl_sheetname + "Healthcare");
+        worksheet6.write(0, 0, 'Summary')
+        worksheet6.write(0, 1, 'URL')
+        worksheet6.write(0, 2, 'Snippet')
+        worksheet7 = workbook1.add_sheet(xl_sheetname + "paper");
+        worksheet7.write(0, 0, 'Summary')
+        worksheet7.write(0, 1, 'URL')
+        worksheet7.write(0, 2, 'Snippet')
+        row_final = 1
         for i in range(1, len(df.index)):
             doc = nlp(df['Snippet'][i])
             matches = matcher(doc)
@@ -178,4 +199,22 @@ def newdomaindrill():
                     worksheet6.write(row_final, col + 2, df['Snippet'][i])
                     row_final += 1
 
-    workbook1.save("..\\DrillDownCompany\\" + xl_sheet.name + ".xls")
+        workbook1.save("..\\DrillDownCompany\\" + xl_sheetname + ".xls")
+
+def getNumberOfRows(file_name,sheet_name):
+    xl_workbook = xlrd.open_workbook(file_name)
+    xl_sheet = xl_workbook.sheet_by_name(sheet_name)
+    return int(xl_sheet.nrows)
+
+def getCSV(file_name):
+    df=pd.read_csv(file_name, sep=",")
+
+    return df['Summary']+"||"+df['URL']
+
+
+def getFileData(file_name,sheet_name):
+    df = pd.read_excel(file_name, sheet_name=sheet_name)
+    return df['Summary']+"||"+df['URL']
+
+
+

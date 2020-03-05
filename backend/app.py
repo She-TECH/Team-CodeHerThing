@@ -2,6 +2,10 @@
 # import necessary libraries and functions 
 from flask import Flask, jsonify, request
 from flask_cors import CORS
+import processing
+import technologyprocess
+import market
+from flask_script import Manager, Server
 
 # creating a Flask app 
 app = Flask(__name__)
@@ -12,9 +16,7 @@ CORS(app)
 # returns the data that we send when we use POST. 
 @app.route('/', methods=['GET', 'POST'])
 def home():
-    if (request.method == 'GET'):
-        data = "hello world"
-        return jsonify({'data': data})
+    init()
 
     # A simple function to calculate the square of a number
 # the number to be squared is sent in the URL when we use GET 
@@ -24,28 +26,89 @@ def home():
 def disp(num):
     return jsonify({'data': num ** 2})
 
+@app.route('/initialize', methods=['GET'])
+def init():
+    processing.segregateCompanyData()
+    processing.processnewproductdata()
+    processing.newdomaindrill()
+    technologyprocess.segregatetechnology()
+    market.markettrendprocessing()
+
+
 @app.route('/siemens', methods=['GET'])
 def getsiemensdata():
-    return jsonify({'new': 5,
-                    'technology': 10,
-                    'marketTrend': 15})
+    newdata = processing.getNumberOfRows("..//new/NewKeywords.xls", "Siemens.csv");
+    techdata1 = processing.getNumberOfRows("..//technologyCompany/Siemens.xls", "SiemensCyber security")
+    techdata2 = processing.getNumberOfRows("..//technologyCompany/Siemens.xls", "SiemensDigital Twin")
+    techdata3 = processing.getNumberOfRows("..//technologyCompany/Siemens.xls", "SiemensData Analytics and AI")
+    techdata4 = processing.getNumberOfRows("..//technologyCompany/Siemens.xls", "SiemensConnectivityEdge")
+    techdata5 = processing.getNumberOfRows("..//technologyCompany/Siemens.xls", "Siemensblockchain")
+    techdata6 = processing.getNumberOfRows("..//technologyCompany/Siemens.xls", "SiemensAutonomous Robots")
+    techdata7 = processing.getNumberOfRows("..//technologyCompany/Siemens.xls", "SiemensAdditive manufacturing")
+    techdata = techdata1 + techdata2 + techdata3 + techdata4 + techdata5 + techdata6 + techdata7;
+    markettrend1 = processing.getNumberOfRows("..//market/Siemens.xls", "Siemenssecurity")
+    markettrend2 = processing.getNumberOfRows("..//market/Siemens.xls", "SiemensCollaboration")
+    markettrend = markettrend1 + markettrend2
+
+    return jsonify({'new': newdata,
+                    'technology': techdata,
+                    'marketTrend': markettrend})
 
 @app.route('/abb', methods=['GET'])
 def getabbdata():
-    return jsonify({'new': 5,
-                    'technology': 10,
-                    'marketTrend': 15})
+    newdata = processing.getNumberOfRows("..//new/NewKeywords.xls", "ABB.csv");
+    techdata1 = processing.getNumberOfRows("..//technologyCompany/ABB.xls", "ABBCyber security")
+    techdata2 = processing.getNumberOfRows("..//technologyCompany/ABB.xls", "ABBDigital Twin")
+    techdata3 = processing.getNumberOfRows("..//technologyCompany/ABB.xls", "ABBData Analytics and AI")
+    techdata4 = processing.getNumberOfRows("..//technologyCompany/ABB.xls", "ABBConnectivityEdge")
+    techdata5 = processing.getNumberOfRows("..//technologyCompany/ABB.xls", "ABBblockchain")
+    techdata6 = processing.getNumberOfRows("..//technologyCompany/ABB.xls", "ABBAutonomous Robots")
+    techdata7 = processing.getNumberOfRows("..//technologyCompany/ABB.xls", "ABBAdditive manufacturing")
+    techdata = techdata1 + techdata2 + techdata3 + techdata4 + techdata5 + techdata6 + techdata7;
+    markettrend1 = processing.getNumberOfRows("..//market/ABB.xls", "ABBsecurity")
+    markettrend2 = processing.getNumberOfRows("..//market/ABB.xls", "ABBCollaboration")
+    markettrend = markettrend1 + markettrend2
+
+    return jsonify({'new': newdata,
+                    'technology': techdata,
+                    'marketTrend': markettrend})
 @app.route('/schinder', methods=['GET'])
 def getschinderdata():
-    return jsonify({'new': 5,
-                    'technology': 10,
-                    'marketTrend': 15})
+    newdata = processing.getNumberOfRows("..//new/NewKeywords.xls", "Schneider.csv");
+    techdata1 = processing.getNumberOfRows("..//technologyCompany/Schneider.xls", "SchneiderCyber security")
+    techdata2 = processing.getNumberOfRows("..//technologyCompany/Schneider.xls", "SchneiderDigital Twin")
+    techdata3 = processing.getNumberOfRows("..//technologyCompany/Schneider.xls", "SchneiderData Analytics and AI")
+    techdata4 = processing.getNumberOfRows("..//technologyCompany/Schneider.xls", "SchneiderConnectivityEdge")
+    techdata5 = processing.getNumberOfRows("..//technologyCompany/Schneider.xls", "Schneiderblockchain")
+    techdata6 = processing.getNumberOfRows("..//technologyCompany/Schneider.xls", "SchneiderAutonomous Robots")
+    techdata7 = processing.getNumberOfRows("..//technologyCompany/Schneider.xls", "SchneiderAdditive manufacturing")
+    techdata = techdata1 + techdata2 + techdata3 + techdata4 + techdata5 + techdata6 + techdata7;
+    markettrend1 = processing.getNumberOfRows("..//market/Schneider.xls", "Schneidersecurity")
+    markettrend2 = processing.getNumberOfRows("..//market/Schneider.xls", "SchneiderCollaboration")
+    markettrend = markettrend1 + markettrend2
+
+    return jsonify({'new': newdata,
+                    'technology': techdata,
+                    'marketTrend': markettrend})
 
 @app.route('/rockwell', methods=['GET'])
 def getrockwelldata():
-    return jsonify({'new': 5,
-                    'technology': 10,
-                    'marketTrend': 15})
+    newdata = processing.getNumberOfRows("..//new/NewKeywords.xls", "Rockwell.csv");
+    techdata1 = processing.getNumberOfRows("..//technologyCompany/Rockwell.xls", "RockwellCyber security")
+    techdata2 = processing.getNumberOfRows("..//technologyCompany/Rockwell.xls", "RockwellDigital Twin")
+    techdata3 = processing.getNumberOfRows("..//technologyCompany/Rockwell.xls", "RockwellData Analytics and AI")
+    techdata4 = processing.getNumberOfRows("..//technologyCompany/Rockwell.xls", "RockwellConnectivityEdge")
+    techdata5 = processing.getNumberOfRows("..//technologyCompany/Rockwell.xls", "Rockwellblockchain")
+    techdata6 = processing.getNumberOfRows("..//technologyCompany/Rockwell.xls", "RockwellAutonomous Robots")
+    techdata7 = processing.getNumberOfRows("..//technologyCompany/Rockwell.xls", "RockwellAdditive manufacturing")
+    techdata = techdata1 + techdata2 + techdata3 + techdata4 + techdata5 + techdata6 + techdata7;
+    markettrend1 = processing.getNumberOfRows("..//market/Rockwell.xls", "Rockwellsecurity")
+    markettrend2 = processing.getNumberOfRows("..//market/Rockwell.xls", "RockwellCollaboration")
+    markettrend = markettrend1 + markettrend2
+
+    return jsonify({'new': newdata,
+                    'technology': techdata,
+                    'marketTrend': markettrend})
 
 @app.route('/siemensdetails', methods=['GET'])
 def getsiemensdetaildata():
@@ -74,6 +137,8 @@ def getrockwelldetaildata():
 
 @app.route('/siemensallnews', methods=['GET'])
 def getsiemensallnews():
+    processing.getCSV("..//company/Siemens.csv")
+
     return jsonify({'news': [
     {'summary': "Siemens Implements an Efficient Power Supply System for KMRCL", 'url': "https://www.arcweb.com/blog/siemens-implements-efficient-power-supply-system-kmrcl"},
     {'summary': "Claroty and Siemens Mobility Integration Increases Cybersecurity for OT and IT Networks", 'url': "https://www.arcweb.com/blog/claroty-siemens-mobility-integration-increases-cybersecurity-ot-it-networks"}
@@ -184,6 +249,19 @@ def getrockwellmarkettrendnews():
     {'summary': "Rockwell Automation to Acquire Avnet to Expand Cybersecurity Expertise and Services", 'url': "https://www.arcweb.com/blog/rockwell-automation-acquire-avnet-expand-cybersecurity-expertise-services"}
   ]})
 
+class CustomServer(Server):
+    def __call__(self, app, *args, **kwargs):
+        init()
+        app.run()
+        #Hint: Here you could manipulate app
+        return Server.__call__(self, app, *args, **kwargs)
+
+manager = Manager(app)
+
+# Remeber to add the command to your Manager instance
+manager.add_command('runserver', CustomServer())
+
+
 # driver function
 if __name__ == '__main__':
-    app.run(debug=True)
+   app.run(debug=True)
