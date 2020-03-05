@@ -208,8 +208,12 @@ def getNumberOfRows(file_name,sheet_name):
 
 def getCSV(file_name):
     df=pd.read_csv(file_name, sep=",")
-
-    return df['Summary']+"||"+df['URL']
+    listOfDict = []
+    with open(file_name,encoding='utf-8') as file:
+        reader = csv.DictReader(file)
+        for row in reader:
+            listOfDict.append(dict(row))
+    return listOfDict
 
 
 def getFileData(file_name,sheet_name):

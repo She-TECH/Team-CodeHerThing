@@ -54,7 +54,7 @@
               [colors]="pieChartColor"
               [chartType]="pieChartType"
               (chartHover)="chartHovered($event)"
-              (chartClick)="chartClicked($event)"></canvas>
+              (chartClick)="chartClicked($event, 'Siemens')"></canvas>
       </div>
     </div>  
   
@@ -67,7 +67,7 @@
               [chartType]="pieChartType"
               [colors]="pieChartColor"
               (chartHover)="chartHovered($event)"
-              (chartClick)="chartClicked($event)"></canvas>
+              (chartClick)="chartClicked($event, 'ABB')"></canvas>
     </div> 
   </div>
     
@@ -82,7 +82,7 @@
               [chartType]="pieChartType"
               [colors]="pieChartColor"
               (chartHover)="chartHovered($event)"
-              (chartClick)="chartClicked($event)"></canvas>
+              (chartClick)="chartClicked($event, 'Rockwell')"></canvas>
     </div> 
   </div>
   
@@ -96,7 +96,7 @@
               [chartType]="pieChartType"
               [colors]="pieChartColor"
               (chartHover)="chartHovered($event)"
-              (chartClick)="chartClicked($event)"></canvas>
+              (chartClick)="chartClicked($event, 'Schneider')"></canvas>
     </div> 
   </div>
   

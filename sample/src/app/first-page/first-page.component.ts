@@ -92,9 +92,10 @@ ngOnInit () {
 }
  
   // events
-  public chartClicked(e:any):void {
-    console.log(e);
-    this.router.navigate(['/secondPage']);
+  public chartClicked(e:any, chartvalue:string):void {
+   // console.log(e);
+    console.log(chartvalue);
+    this.router.navigate(['/secondPage', {company: chartvalue}]);
   }
  
   public chartHovered(e:any):void {

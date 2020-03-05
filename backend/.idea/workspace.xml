@@ -5,6 +5,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/processing.py" beforeDir="false" afterPath="$PROJECT_DIR$/processing.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../sample/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../sample/src/app/first-page/first-page.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../sample/src/app/first-page/first-page.component.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -153,7 +154,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/app.py</url>
-          <line>139</line>
+          <line>246</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
