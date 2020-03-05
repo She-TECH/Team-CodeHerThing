@@ -4,6 +4,8 @@ import { HttpClient } from '@angular/common/http';
 import { HttpErrorResponse } from '@angular/common/http';
 import { ActivatedRoute } from "@angular/router";
 import {DetailData} from '../newdata'
+import {UrlData} from '../urlData';
+import { AllNewsData } from '../allNewsData';
 
 @Component({
   selector: 'app-second-page',
@@ -18,6 +20,7 @@ export class SecondPageComponent implements OnInit {
   public pieChartDataDomain:number[] = [];
   public pieChartDataTech:number[] = [];
   public pieChartDataMarket:number[] = [];
+  public firstChart = true;
   public pieChartColor:any = [
     {
         backgroundColor: ['rgba(30, 169, 224, 0.8)',
@@ -30,17 +33,22 @@ export class SecondPageComponent implements OnInit {
     ]
     }]
   public pieChartType:string = 'pie';
-  public firstChart = false;
   public secChart = false;
   public thirdChart = false;
   public chartValue:string;
+  public allChartDataList:UrlData;
+  allData: AllNewsData[]
 
   constructor(private router: Router, private route: ActivatedRoute,private httpService: HttpClient){
     this.chartValue = route.snapshot.params['company']
     console.log(this.chartValue)
+    this.allChartDataList = new UrlData();
+    this.allChartDataList.news = []
   }
 
   ngOnInit () {
+  
+  
     
     console.log(this.chartValue)
     if (this.chartValue == 'Siemens')
@@ -73,6 +81,16 @@ export class SecondPageComponent implements OnInit {
             console.log (err.message);
         }
     );
+
+    this.httpService.get('http://localhost:5000/siemensallnews', {responseType: 'json'}).subscribe(
+      data => {
+        this.allData = <AllNewsData[]>data
+        for (let i = this.allData.length - 1; i >= 0; i--) {
+          this.allChartDataList.news.push(this.allData[i]);
+        }
+        })  
+    
+
     }
 
     if (this.chartValue == 'ABB')
@@ -105,7 +123,14 @@ export class SecondPageComponent implements OnInit {
             console.log (err.message);
         }
     );
-    }
+    this.httpService.get('http://localhost:5000/abballnews', {responseType: 'json'}).subscribe(
+      data => {
+        this.allData = <AllNewsData[]>data
+        for (let i = this.allData.length - 1; i >= 0; i--) {
+          this.allChartDataList.news.push(this.allData[i]);
+        }
+        })
+      }
 
     if (this.chartValue == 'Rockwell')
     {
@@ -137,6 +162,14 @@ export class SecondPageComponent implements OnInit {
             console.log (err.message);
         }
     );
+    this.httpService.get('http://localhost:5000/rockwellallnews', {responseType: 'json'}).subscribe(
+      data => {
+        this.allData = <AllNewsData[]>data
+        for (let i = this.allData.length - 1; i >= 0; i--) {
+          this.allChartDataList.news.push(this.allData[i]);
+        }
+        })
+    
     }
 
     if (this.chartValue == 'Schneider')
@@ -169,81 +202,17 @@ export class SecondPageComponent implements OnInit {
             console.log (err.message);
         }
     );
-    }
-  
-/*
-    this.httpService.get('http://localhost:5000/abb', {responseType: 'json'}).subscribe(
-        data => {
-          console.log("data");
-          let pieData = <CompanyData>data;        
-            this.pieChartDataAbb.push(pieData.new);
-            this.pieChartDataAbb.push(pieData.technology);
-            this.pieChartDataAbb.push(pieData.marketTrend);// FILL THE CHART ARRAY WITH DATA.
-        },
-        (err: HttpErrorResponse) => {
-            console.log (err.message);
-        }
-    );
 
-    this.httpService.get('http://localhost:5000/schinder', {responseType: 'json'}).subscribe(
-        data => {
-          console.log("data");
-          let pieData = <CompanyData>data;        
-            this.pieChartDataSchinder.push(pieData.new);
-            this.pieChartDataSchinder.push(pieData.technology);
-            this.pieChartDataSchinder.push(pieData.marketTrend);// FILL THE CHART ARRAY WITH DATA.
-        },
-        (err: HttpErrorResponse) => {
-            console.log (err.message);
+    this.httpService.get('http://localhost:5000/schniderallnews', {responseType: 'json'}).subscribe(
+      data => {
+        this.allData = <AllNewsData[]>data
+        for (let i = this.allData.length - 1; i >= 0; i--) {
+          this.allChartDataList.news.push(this.allData[i]);
         }
-    );
+        })
+  }
 
-    this.httpService.get('http://localhost:5000/rockwell', {responseType: 'json'}).subscribe(
-        data => {
-          console.log("data");
-          let pieData = <CompanyData>data;        
-            this.pieChartDataRockwell.push(pieData.new);
-            this.pieChartDataRockwell.push(pieData.technology);
-            this.pieChartDataRockwell.push(pieData.marketTrend);// FILL THE CHART ARRAY WITH DATA.
-        },
-        (err: HttpErrorResponse) => {
-            console.log (err.message);
-        }
-    );*/
+
 }
- 
-
-  
-
-  // events
-  public chartClicked1(e:any):void {
-    console.log("clicked");
-    console.log(e);
-    e = true;
-    this.firstChart = true;
-    this.secChart = false;
-    this.thirdChart = false;
-    console.log(e);
-  }
-
-
-  public chartClicked2(e:any):void {
-    console.log("clicked====");
-    this.secChart = true;
-    this.firstChart = false;
-    this.thirdChart = false;
-  }
-
-  public chartClicked3(e:any):void {
-    console.log("clicked====");
-    this.thirdChart = true;
-    this.firstChart = false;
-    this.secChart = false;
-  }
- 
-  public chartHovered(e:any):void {
-    console.log(e);
-  }
- 
 
 }

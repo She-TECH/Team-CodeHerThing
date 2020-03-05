@@ -244,19 +244,23 @@ def getrockwelldetaildata():
 
 @app.route('/siemensallnews', methods=['GET'])
 def getsiemensallnews():
-    return processing.getCSV("..//company/Siemens.csv")
+    data =  processing.getCSV("..//company/Siemens.csv")
+    return jsonify(data);
 
 @app.route('/abballnews', methods=['GET'])
 def getabballnews():
-    return processing.getCSV("..//company/ABB.csv")
+    data = processing.getCSV("..//company/ABB.csv")
+    return jsonify(data);
 
 @app.route('/schniderallnews', methods=['GET'])
 def getschniderallnews():
-    return processing.getCSV("..//company/Schneider.csv")
+    data = processing.getCSV("..//company/Schneider.csv")
+    return jsonify(data);
 
 @app.route('/rockwellallnews', methods=['GET'])
 def getrockwellallnews():
-    return processing.getCSV("..//company/Rockwell.csv")
+    data = processing.getCSV("..//company/Rockwell.csv")
+    return jsonify(data);
 
 @app.route('/siemensnewnews', methods=['GET'])
 def getsiemensnewnews():
