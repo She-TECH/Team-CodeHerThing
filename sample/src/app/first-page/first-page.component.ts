@@ -29,8 +29,9 @@ import { HttpErrorResponse } from '@angular/common/http';
   
 
 ngOnInit () {
-    this.httpService.get('./assets/data.json', {responseType: 'json'}).subscribe(
+    this.httpService.get('http://localhost:5000/siemens', {responseType: 'json'}).subscribe(
         data => {
+          console.log("data");
             this.pieChartDataOne = data as any [];	 // FILL THE CHART ARRAY WITH DATA.
         },
         (err: HttpErrorResponse) => {

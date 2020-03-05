@@ -30,7 +30,12 @@
             width: auto;
             min-width: 20%;
             position: relative;
-          }  
+          }
+          
+          .vl {
+  border-left: 1px solid black;
+  height: 500px;
+}
         
         </style>
         
@@ -42,11 +47,12 @@
         </div>  
         
         <div><hr></div>
-
-
+        
 <div style="float:left">
-    <div style="font-size: 19px;margin-left: 41%;"><b>New</b></div>
-    <div style="display: block; height: 250px; width: 500px;">
+<div>
+<div style="float:left">
+    <div style="font-size: 19px;margin-left: 36%;"><b>New</b></div>
+    <div style="display: block; height: 250px; width: 500px;margin-left: -8%">
     <canvas baseChart
             [data]="pieChartData"
             [labels]="pieChartLabels"
@@ -54,4 +60,38 @@
             (chartHover)="chartHovered($event)"
             (chartClick)="chartClicked($event)"></canvas>
     </div>
-  </div>  
+  </div> 
+
+  <div style="float:left">
+    <div style="font-size: 19px;margin-left: 4%;"><b>New</b></div>
+    <div style="display: block; height: 250px; width: 500px;margin-left: -45%;">
+    <canvas baseChart
+            [data]="pieChartData"
+            [labels]="pieChartLabels"
+            [chartType]="pieChartType"
+            (chartHover)="chartHovered($event)"
+            (chartClick)="chartClicked($event)"></canvas>
+    </div>
+  </div> 
+  
+</div>
+
+<div>
+        <div style="float:left;padding-top: 5%;">
+                <div style="font-size: 19px;margin-left: 69%;"><b>New</b></div>
+                <div style="display: block; height: 250px; width: 500px;margin-left: 26%;">
+                <canvas baseChart
+                        [data]="pieChartData"
+                        [labels]="pieChartLabels"
+                        [chartType]="pieChartType"
+                        (chartHover)="chartHovered($event)"
+                        (chartClick)="chartClicked($event)"></canvas>
+                </div>
+        </div>     
+</div>
+</div>
+
+
+
+
+
