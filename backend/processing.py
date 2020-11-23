@@ -15,28 +15,33 @@ import plac
 import random
 from pathlib import Path
 import spacy
+import os.path
 from spacy.util import minibatch, compounding
 def segregateCompanyData():
-    keywords = {"Siemens", "Schneider", "Rockwell", "ABB"}  # all your keywords
-    with open('D:\\Trainings\\Hackathon\\repo\\Team-CodeHerThing\\company\\Siemens.csv', 'a', newline='',
-    encoding="utf-8") as fd:
-        newFileWriter = csv.writer(fd)
-        newFileWriter.writerow(['Summary', 'URL', 'Snippet'])
-    with open('D:\\Trainings\\Hackathon\\repo\\Team-CodeHerThing\\company\\ABB.csv', 'a', newline='',
-    encoding="utf-8") as fd:
-        newFileWriter = csv.writer(fd)
-        newFileWriter.writerow(['Summary', 'URL', 'Snippet'])
-    with open('D:\\Trainings\\Hackathon\\repo\\Team-CodeHerThing\\company\\Schneider.csv', 'a', newline='',
-    encoding="utf-8") as fd:
-        newFileWriter = csv.writer(fd)
-        newFileWriter.writerow(['Summary', 'URL', 'Snippet'])
-    with open('D:\\Trainings\\Hackathon\\repo\\Team-CodeHerThing\\company\\Rockwell.csv', 'a', newline='',
-    encoding="utf-8") as fd:
-        newFileWriter = csv.writer(fd)
-        newFileWriter.writerow(['Summary', 'URL', 'Snippet'])
+    isDataSegregated = False;
+    isPathExist = os.path.exists('D:\\Trainings\\Hackathon\\repo\\Team-CodeHerThing\\company\\Siemens.csv');
+    keywords = {"Siemens", "Emerson", "Honeywell", "ABB"}  # all your keywords
+    if not isPathExist:
+        with open('D:\\Trainings\\Hackathon\\repo\\Team-CodeHerThing\\company\\Siemens.csv', 'a', newline='',
+        encoding="utf-8") as fd:
+            newFileWriter = csv.writer(fd)
+            newFileWriter.writerow(['Summary', 'URL', 'Snippet'])
+        with open('D:\\Trainings\\Hackathon\\repo\\Team-CodeHerThing\\company\\ABB.csv', 'a', newline='',
+        encoding="utf-8") as fd:
+            newFileWriter = csv.writer(fd)
+            newFileWriter.writerow(['Summary', 'URL', 'Snippet'])
+        with open('D:\\Trainings\\Hackathon\\repo\\Team-CodeHerThing\\company\\Schneider.csv', 'a', newline='',
+        encoding="utf-8") as fd:
+            newFileWriter = csv.writer(fd)
+            newFileWriter.writerow(['Summary', 'URL', 'Snippet'])
+        with open('D:\\Trainings\\Hackathon\\repo\\Team-CodeHerThing\\company\\Rockwell.csv', 'a', newline='',
+        encoding="utf-8") as fd:
+            newFileWriter = csv.writer(fd)
+            newFileWriter.writerow(['Summary', 'URL', 'Snippet'])
 
     path = r"D:\\Trainings\\Hackathon\\repo\\Team-CodeHerThing\\NewData\\*.csv"
     for fname in glob.glob(path):
+        isDataSegregated = True;
         df = pd.read_csv(fname, sep=",")
         for i in range(1, len(df.index)):
             for keyword in keywords:
@@ -51,25 +56,28 @@ def segregateCompanyData():
                         encoding="utf-8") as fd:
                             newFileWriter = csv.writer(fd)
                             newFileWriter.writerow([df['Summary'][i], df['URL'][i], df['Snippet'][i]])
-                    elif keyword == "Schneider":
+                    elif keyword == "Emerson":
                         with open('D:\\Trainings\\Hackathon\\repo\\Team-CodeHerThing\\company\\Schneider.csv', 'a',
                         newline='', encoding="utf-8") as fd:
                             newFileWriter = csv.writer(fd)
                             newFileWriter.writerow([df['Summary'][i], df['URL'][i], df['Snippet'][i]])
-                    elif keyword == "Rockwell":
+                    elif keyword == "Honeywell":
                         with open('D:\\Trainings\\Hackathon\\repo\\Team-CodeHerThing\\company\\Rockwell.csv', 'a',
                         newline='', encoding="utf-8") as fd:
                             newFileWriter = csv.writer(fd)
                             newFileWriter.writerow([df['Summary'][i], df['URL'][i], df['Snippet'][i]])
+    return isDataSegregated
 
 def processnewproductdata():
     path = r"D:\\Trainings\\Hackathon\\repo\\Team-CodeHerThing\\company\\*.csv"
-    keywords_new = {"new", "introduce", "announced", "launched", "acquire", "implement", "Implements"}  # all your keywords
+    keywords_new = {"new", "introduce", "announced", "launched", "acquire", "implement", "Implements", "release"}
+        #"DCS", "Distributed Control System", "Distributed Controlsystem", "dcs", "distributed control system"  # all your keywords
 
     workbook = xlwt.Workbook()
     nlp = spacy.load('en_core_web_sm')
     matcher = PhraseMatcher(nlp.vocab)
-    terms = ["new", "introduce", "announced", "launched", "acquire", "implement", "Implements"]
+    terms = ["new", "introduce", "announced", "launched", "acquire", "implement", "Implements", "release"]
+        #"DCS", "Distributed Control System", "Distributed Controlsystem", "dcs", "distributed control system"
     # Only run nlp.make_doc to speed things up
     patterns = [nlp.make_doc(text) for text in terms]
     matcher.add("TerminologyList", None, *patterns)
@@ -103,27 +111,26 @@ def newdomaindrill():
     matcher = PhraseMatcher(nlp.vocab)
 
     # Only run nlp.make_doc to speed things up
-    terma = ["Digital Transformation", "digital transformation", "Manufacturing", "Process Automation", "SCADA", "Water", "Pharmaceuticals",
-         "Asset Performance Management", "Factory Automation"
-                                         "Smart City", "Building Technology",  "Smart Home",
-         "Mobility", "Railway",
+    terma = [ "Process Automation", "SCADA", "Water",
+         "Asset Performance Management",
          "Wind Turbines", "photovoltaic", "Energy", "DCS", "Oil & Gas", "Solar", "Power",
-         "Healthcare", "Paper", "manufacturing", "process automation", "scada", "water", "pharmaceuticals",
-         "asset performance management", "factory automation"
-                                         "smart city", "building technology", "smart home",
-         "mobility", "railway",
+           "process automation", "scada", "water",
+         "asset performance management",
          "wind turbines", "photovoltaic", "energy", "dcs", "oil & gas", "solar", "power",
-         "healthcare", "paper"]
+              "PtX", "Hydrogen", "hydrogen", "Power-To-X", "Storage", "storage", "Green hydrogen", "green hydrogen",
+              "Green Hydrogen", "Blue hydrogen", "blue hydrogen",
+              "Blue Hydrogen", "Battery Storage", "battery storage", "Hydro", "hydro",
+              "Digital Service", "digital service", "I&C", "Coal", "coal", "Gas", "gas", "Thermal", "thermal",
+              "Combined Captive", "CCPP", "combined captive", "O&G", "APM",  "renewable", "Renewable"
+         ]
 
-    terms1 = ["Digital Transformation", "Manufacturing", "Process Automation", "SCADA", "Water", "Pharmaceuticals",
-          "Asset Performance Management", "Factory Automation", "digital transformation", "manufacturing",
-          "process automation","scada", "water", "pharmaceuticals",
-          "asset performance management", "factory automation", "Paper", "paper"]
-    terms2 = ["Building Technology", "Smart City", "Smart Home", "building technology", "smart city", "smart home"]
-    terms3 = ["Mobility", "Railway", "mobility", "railway"]
-    terms4 = ["Wind Turbines", "Photovoltaic", "Energy", "DCS", "Oil & Gas", "Solar", "Power",
-          "wind turbines", "photovoltaic", "energy", "dcs", "oil & gas", "solar", "power"]
-    terms5 = ["Healthcare", "healthcare"]
+    terms1 = [ "PtX", "Hydrogen", "hydrogen", "Power-To-X", "Storage", "storage", "Green hydrogen", "green hydrogen", "Green Hydrogen", "Blue hydrogen", "blue hydrogen",
+"Blue Hydrogen", "Battery Storage", "battery storage", "Hydro", "hydro", "Water", "water", "Wind Turbines", "wind", "Wind", "wind turbines",
+               "Photovoltaic", "Solar", "photovoltaic", "solar", "renewable", "Renewable"]
+    terms2 = ["Digital Service", "digital service", "I&C", "Coal", "coal", "Gas", "gas", "Thermal", "thermal", "Combined Captive", "CCPP", "combined captive",
+              "Energy", "energy", "power", "Power"]
+    terms3 = ["Oil & Gas", "oil & gas", "O&G"]
+    terms4 = ["Process Automation", "SCADA", "Asset Performance Management",  "process automation", "scada",  "asset performance management", "APM"]
 
     # Only run nlp.make_doc to speed things up
     patterns = [nlp.make_doc(text) for text in terma]
@@ -153,14 +160,7 @@ def newdomaindrill():
         worksheet5.write(0, 0, 'Summary')
         worksheet5.write(0, 1, 'URL')
         worksheet5.write(0, 2, 'Snippet')
-        worksheet6 = workbook1.add_sheet(xl_sheetname + "Healthcare");
-        worksheet6.write(0, 0, 'Summary')
-        worksheet6.write(0, 1, 'URL')
-        worksheet6.write(0, 2, 'Snippet')
-        worksheet7 = workbook1.add_sheet(xl_sheetname + "paper");
-        worksheet7.write(0, 0, 'Summary')
-        worksheet7.write(0, 1, 'URL')
-        worksheet7.write(0, 2, 'Snippet')
+
         row_final = 1
         for i in range(1, len(df.index)):
             doc = nlp(df['Snippet'][i])
@@ -192,19 +192,18 @@ def newdomaindrill():
                     worksheet5.write(row_final, col + 1, df['URL'][i])
                     worksheet5.write(row_final, col + 2, df['Snippet'][i])
                     row_final += 1
-                if (span.text in terms5):
-                    col = 0
-                    worksheet6.write(row_final, col, df['Summary'][i])
-                    worksheet6.write(row_final, col + 1, df['URL'][i])
-                    worksheet6.write(row_final, col + 2, df['Snippet'][i])
-                    row_final += 1
+
 
         workbook1.save("..\\DrillDownCompany\\" + xl_sheetname + ".xls")
 
 def getNumberOfRows(file_name,sheet_name):
+    count = 0
     xl_workbook = xlrd.open_workbook(file_name)
     xl_sheet = xl_workbook.sheet_by_name(sheet_name)
-    return int(xl_sheet.nrows)
+    for row in range(xl_sheet.nrows):
+        if (xl_sheet.cell_value(row, 1) != ""):
+            count +=1;
+    return int(count)
 
 def getCSV(file_name):
     df=pd.read_csv(file_name, sep=",")

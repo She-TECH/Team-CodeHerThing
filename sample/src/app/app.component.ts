@@ -3,6 +3,8 @@ import { ChartsModule } from 'ng2-charts';
 import { Label } from 'ng2-charts';
 import { ChartType, ChartOptions } from 'chart.js';
 import { Router } from "@angular/router";
+import { HttpClient } from '@angular/common/http';
+import { HttpErrorResponse } from '@angular/common/http';
 //import * as pluginDataLabels from 'chartjs-plugin-datalabels';
 
 
@@ -13,7 +15,7 @@ import { Router } from "@angular/router";
 })
 export class AppComponent {
 
-  constructor(private router: Router){
+  constructor(private router: Router, private httpService: HttpClient){
   }
 
   title = 'frontend';
@@ -34,6 +36,9 @@ export class AppComponent {
 
   home() {
     //alert("Welcome");
+    this.httpService.get('http://localhost:5000/', {responseType: 'json'}).subscribe(
+      data => {
+      })
     this.router.navigate(['/']);
   }
 

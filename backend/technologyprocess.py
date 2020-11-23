@@ -15,27 +15,28 @@ def segregatetechnology() :
     matcher = PhraseMatcher(nlp.vocab)
 
     # Only run nlp.make_doc to speed things up
-    termTechno = ["Cybersecurity", "Security",
-              "Digital Twin",
+    termTechno = ["Cybersecurity", "Security", "vulnerabilities", "malware", "virus","hack","ransomware","Denial of Service", "DoS","SQL Injection","Network Security","Hijack","CSRF","Digital Signature","XSS","Cross Site Scripting","SSL","TLS","OWASP","IEC62443", "Vulnerabilities", "Malware", "Virus", "Hack", "Ransomeware", "hijack",
+              "Digital Twin", "Simulation"
               "Analytics", "AI", "Artificial Intelligence", "Machine Learning",
-              "IOT", "Cloud", "Edge", "Wireless", "Internet of Things", "IIOT", "Protocol",
-              "Blockchain",
+              "IOT", "Cloud", "Edge", "Wireless", "Internet of Things", "IIOT", "Protocol", "IoT",
+              "Blockchain", "Cryptography"
               "Robotics",
-              "Additive Manufacturing", "cybersecurity", "security",
-              "digital twin",
+               "cybersecurity", "security",
+              "digital twin", "simulation"
               "analytics", "artificial intelligence", "machine learning",
             "cloud", "edge", "wireless", "internet of things",  "protocol",
-              "blockchain",
+              "blockchain", "cryptography"
               "robotics",
-              "additive manufacturing"]
+              "I/O Module", "Controller", "controller", "Server", "server", "Virtualization", "virtualization", "Virtual", "virtual", "Modular", "modular","Container", "container", "containerization", "Containerization", "IO Module" ]
 
-    termTechno1 = ["Cybersecurity", "Security", "cybersecurity", "security"]
-    termTechno2 = ["Digital Twin", "digital twin"]
+    termTechno1 = ["Cybersecurity", "Security", "cybersecurity", "security", "vulnerabilities", "malware", "virus","hack","ransomware","Denial of Service", "DoS","SQL Injection","Network Security","Hijack","CSRF","Digital Signature","XSS","Cross Site Scripting","SSL","TLS","OWASP","IEC62443", "Vulnerabilities", "Malware", "Virus", "Hack", "Ransomeware", "hijack"]
+    termTechno2 = ["Digital Twin", "digital twin", "Simulation", "simulation"]
     termTechno3 = ["Analytics", "AI", "Artificial Intelligence", "Machine Learning", "analytics",  "artificial intelligence", "machine learning"]
-    termTechno4 = ["IOT", "Cloud", "Edge", "Wireless", "Internet of Things", "IIOT", "Protocols", "cloud", "edge", "wireless", "internet of things",  "protocols"]
-    termTechno5 = ["blockchain", "Blockchain"]
+    termTechno4 = ["IOT", "Cloud", "Edge", "Wireless", "IoT","Internet of Things", "IIOT", "Protocols", "cloud", "edge", "wireless", "internet of things",  "protocols"]
+    termTechno5 = ["blockchain", "Blockchain", "cryptography", "Cryptography"]
     termTechno6 = ["robotics", "Robotics"]
-    termTechno7 = ["Additive Manufacturing", "additive manufacturing"]
+    termTechno7 = ["I/O Module", "Controller", "controller", "Server", "server", "Virtualization", "virtualization", "Virtual", "virtual", "Modular", "modular","Container", "container", "containerization", "Containerization", "IO Module"]
+
 
     # Only run nlp.make_doc to speed things up
     patterns = [nlp.make_doc(text) for text in termTechno]

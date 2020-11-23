@@ -14,9 +14,9 @@ import { AllNewsData } from '../allNewsData';
 })
 export class SecondPageComponent implements OnInit {
 
-  public pieChartLabels1:string[] = ['DI', 'SI', 'MO', 'Energy', 'Healthcare'];
-  public pieChartLabels2:string[] = ['CS', 'DT', 'DA', 'CED','Blockchain', 'AR', 'AM'];
-  public pieChartLabels3:string[] = ['Security', 'Collaboration'];
+  public pieChartLabels1:string[] = ['Renewable', 'Energy Automation', 'O&G', 'Process Automation'];
+  public pieChartLabels2:string[] = ['CyberSecurity', 'DigitalTwin', 'AI', 'IoT','Blockchain', 'Robotics', 'Hardware'];
+  public pieChartLabels3:string[] = ['New Release', 'Collaboration'];
   public pieChartDataDomain:number[] = [];
   public pieChartDataTech:number[] = [];
   public pieChartDataMarket:number[] = [];
@@ -25,11 +25,11 @@ export class SecondPageComponent implements OnInit {
     {
         backgroundColor: ['rgba(30, 169, 224, 0.8)',
         'rgba(255,165,0,0.9)',
-        'rgba(139, 136, 136, 0.9)',
-        'rgba(139, 136, 100, 0.9)',
-        'rgba(139, 136, 120, 0.9)',
-        'rgba(139, 136, 130, 0.9)',
-        'rgba(139, 136, 140, 0.9)'
+        'rgba(153,0,76, 0.9)',
+        'rgba(120, 167, 100, 0.9)',
+        'rgba(25,0,51, 0.9)',
+        'rgba(0,153,153, 0.9)',
+        'rgba(204,0,0, 0.9)'
     ]
     }]
   public pieChartType:string = 'pie';
@@ -61,7 +61,7 @@ export class SecondPageComponent implements OnInit {
             this.pieChartDataDomain.push(pieData.si);
             this.pieChartDataDomain.push(pieData.mo);
             this.pieChartDataDomain.push(pieData.energy);
-            this.pieChartDataDomain.push(pieData.health);
+            
 
             this.pieChartDataTech.push(pieData.cs);
             this.pieChartDataTech.push(pieData.dt);
@@ -103,8 +103,7 @@ export class SecondPageComponent implements OnInit {
             this.pieChartDataDomain.push(pieData.si);
             this.pieChartDataDomain.push(pieData.mo);
             this.pieChartDataDomain.push(pieData.energy);
-            this.pieChartDataDomain.push(pieData.health);
-
+           
             this.pieChartDataTech.push(pieData.cs);
             this.pieChartDataTech.push(pieData.dt);
             this.pieChartDataTech.push(pieData.da);
@@ -132,7 +131,7 @@ export class SecondPageComponent implements OnInit {
         })
       }
 
-    if (this.chartValue == 'Rockwell')
+    if (this.chartValue == 'Honeywell')
     {
         this.httpService.get('http://localhost:5000/rockwelldetails', {responseType: 'json'}).subscribe(
         data => {
@@ -142,8 +141,7 @@ export class SecondPageComponent implements OnInit {
             this.pieChartDataDomain.push(pieData.si);
             this.pieChartDataDomain.push(pieData.mo);
             this.pieChartDataDomain.push(pieData.energy);
-            this.pieChartDataDomain.push(pieData.health);
-
+           
             this.pieChartDataTech.push(pieData.cs);
             this.pieChartDataTech.push(pieData.dt);
             this.pieChartDataTech.push(pieData.da);
@@ -151,6 +149,7 @@ export class SecondPageComponent implements OnInit {
             this.pieChartDataTech.push(pieData.block);
             this.pieChartDataTech.push(pieData.robot);
             this.pieChartDataTech.push(pieData.add);
+           
 
             this.pieChartDataMarket.push(pieData.sec);
             this.pieChartDataMarket.push(pieData.coll);
@@ -172,7 +171,7 @@ export class SecondPageComponent implements OnInit {
     
     }
 
-    if (this.chartValue == 'Schneider')
+    if (this.chartValue == 'Emerson')
     {
         this.httpService.get('http://localhost:5000/schinderdetails', {responseType: 'json'}).subscribe(
         data => {
@@ -182,8 +181,7 @@ export class SecondPageComponent implements OnInit {
             this.pieChartDataDomain.push(pieData.si);
             this.pieChartDataDomain.push(pieData.mo);
             this.pieChartDataDomain.push(pieData.energy);
-            this.pieChartDataDomain.push(pieData.health);
-
+          
             this.pieChartDataTech.push(pieData.cs);
             this.pieChartDataTech.push(pieData.dt);
             this.pieChartDataTech.push(pieData.da);

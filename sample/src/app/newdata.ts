@@ -3,7 +3,6 @@ export class DetailData{
     si: number;
     mo: number;
     energy: number;
-    health: number;
     cs: number;
     dt: number;
     da: number;

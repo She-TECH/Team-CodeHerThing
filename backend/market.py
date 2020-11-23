@@ -14,10 +14,10 @@ def markettrendprocessing():
     matcher = PhraseMatcher(nlp.vocab)
 
     # Only run nlp.make_doc to speed things up
-    termMarket = ["security", "flaw", "bad", "issue", "bug",
+    termMarket = ["new", "introduce", "announced", "launched", "acquire", "implement", "Implements","release",
               "collab", "acquire"]
 
-    termMarket1 = ["security", "flaw", "bad", "issue", "bug"]
+    termMarket1 = ["new", "introduce", "announced", "launched", "acquire", "implement", "Implements", "release"]
     termMarket2 = ["collab", "acquire"]
 
     # Only run nlp.make_doc to speed things up

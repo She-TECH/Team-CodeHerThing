@@ -18,7 +18,7 @@ import {CompanyData} from '../companydata';
     constructor(private router: Router, private httpService: HttpClient){
     }
 
-  public pieChartLabels:string[] = ['New', 'Technology', 'Customer Satisfaction'];
+  public pieChartLabels:string[] = ['New', 'Technology', 'Market Trends'];
   public pieChartData:number[] = [50, 20, 30];
   public pieChartType:string = 'pie';
   public pieChartDataSiemens:number[] = [];
@@ -29,7 +29,7 @@ import {CompanyData} from '../companydata';
     {
         backgroundColor: ['rgba(30, 169, 224, 0.8)',
         'rgba(255,165,0,0.9)',
-        'rgba(139, 136, 136, 0.9)'
+        'rgba(153,0,76,0.9)'
     ]
     }]
 

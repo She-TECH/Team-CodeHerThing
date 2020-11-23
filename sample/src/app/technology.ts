@@ -5,6 +5,5 @@ export class TechData{
     ce: number;
     block: number;
     robot: number;
-    add:number;
-
+    add: number;
 }

@@ -37,17 +37,17 @@ def init():
 
 @app.route('/siemens', methods=['GET'])
 def getsiemensdata():
-    newdata = processing.getNumberOfRows("..//new/NewKeywords.xls", "Siemens.csv");
-    techdata1 = processing.getNumberOfRows("..//technologyCompany/Siemens.xls", "SiemensCyber security")
-    techdata2 = processing.getNumberOfRows("..//technologyCompany/Siemens.xls", "SiemensDigital Twin")
-    techdata3 = processing.getNumberOfRows("..//technologyCompany/Siemens.xls", "SiemensData Analytics and AI")
-    techdata4 = processing.getNumberOfRows("..//technologyCompany/Siemens.xls", "SiemensConnectivityEdge")
-    techdata5 = processing.getNumberOfRows("..//technologyCompany/Siemens.xls", "Siemensblockchain")
-    techdata6 = processing.getNumberOfRows("..//technologyCompany/Siemens.xls", "SiemensAutonomous Robots")
-    techdata7 = processing.getNumberOfRows("..//technologyCompany/Siemens.xls", "SiemensAdditive manufacturing")
+    newdata = processing.getNumberOfRows("..//new/NewKeywords.xls", "Siemens.csv") - 1;
+    techdata1 = processing.getNumberOfRows("..//technologyCompany/Siemens.xls", "SiemensCyber security") - 1;
+    techdata2 = processing.getNumberOfRows("..//technologyCompany/Siemens.xls", "SiemensDigital Twin") - 1;
+    techdata3 = processing.getNumberOfRows("..//technologyCompany/Siemens.xls", "SiemensData Analytics and AI") - 1;
+    techdata4 = processing.getNumberOfRows("..//technologyCompany/Siemens.xls", "SiemensConnectivityEdge") - 1;
+    techdata5 = processing.getNumberOfRows("..//technologyCompany/Siemens.xls", "Siemensblockchain") - 1;
+    techdata6 = processing.getNumberOfRows("..//technologyCompany/Siemens.xls", "SiemensAutonomous Robots") - 1;
+    techdata7 = processing.getNumberOfRows("..//technologyCompany/Siemens.xls", "SiemensAdditive manufacturing") -1;
     techdata = techdata1 + techdata2 + techdata3 + techdata4 + techdata5 + techdata6 + techdata7;
-    markettrend1 = processing.getNumberOfRows("..//market/Siemens.xls", "Siemenssecurity")
-    markettrend2 = processing.getNumberOfRows("..//market/Siemens.xls", "SiemensCollaboration")
+    markettrend1 = processing.getNumberOfRows("..//market/Siemens.xls", "Siemenssecurity") - 1;
+    markettrend2 = processing.getNumberOfRows("..//market/Siemens.xls", "SiemensCollaboration") - 1;
     markettrend = markettrend1 + markettrend2
 
     return jsonify({'new': newdata,
@@ -56,17 +56,17 @@ def getsiemensdata():
 
 @app.route('/abb', methods=['GET'])
 def getabbdata():
-    newdata = processing.getNumberOfRows("..//new/NewKeywords.xls", "ABB.csv");
-    techdata1 = processing.getNumberOfRows("..//technologyCompany/ABB.xls", "ABBCyber security")
-    techdata2 = processing.getNumberOfRows("..//technologyCompany/ABB.xls", "ABBDigital Twin")
-    techdata3 = processing.getNumberOfRows("..//technologyCompany/ABB.xls", "ABBData Analytics and AI")
-    techdata4 = processing.getNumberOfRows("..//technologyCompany/ABB.xls", "ABBConnectivityEdge")
-    techdata5 = processing.getNumberOfRows("..//technologyCompany/ABB.xls", "ABBblockchain")
-    techdata6 = processing.getNumberOfRows("..//technologyCompany/ABB.xls", "ABBAutonomous Robots")
-    techdata7 = processing.getNumberOfRows("..//technologyCompany/ABB.xls", "ABBAdditive manufacturing")
+    newdata = processing.getNumberOfRows("..//new/NewKeywords.xls", "ABB.csv")- 1;
+    techdata1 = processing.getNumberOfRows("..//technologyCompany/ABB.xls", "ABBCyber security") - 1;
+    techdata2 = processing.getNumberOfRows("..//technologyCompany/ABB.xls", "ABBDigital Twin") - 1;
+    techdata3 = processing.getNumberOfRows("..//technologyCompany/ABB.xls", "ABBData Analytics and AI") - 1;
+    techdata4 = processing.getNumberOfRows("..//technologyCompany/ABB.xls", "ABBConnectivityEdge") - 1;
+    techdata5 = processing.getNumberOfRows("..//technologyCompany/ABB.xls", "ABBblockchain") - 1;
+    techdata6 = processing.getNumberOfRows("..//technologyCompany/ABB.xls", "ABBAutonomous Robots") - 1;
+    techdata7 = processing.getNumberOfRows("..//technologyCompany/ABB.xls", "ABBAdditive manufacturing") - 1;
     techdata = techdata1 + techdata2 + techdata3 + techdata4 + techdata5 + techdata6 + techdata7;
-    markettrend1 = processing.getNumberOfRows("..//market/ABB.xls", "ABBsecurity")
-    markettrend2 = processing.getNumberOfRows("..//market/ABB.xls", "ABBCollaboration")
+    markettrend1 = processing.getNumberOfRows("..//market/ABB.xls", "ABBsecurity") - 1;
+    markettrend2 = processing.getNumberOfRows("..//market/ABB.xls", "ABBCollaboration") - 1;
     markettrend = markettrend1 + markettrend2
 
     return jsonify({'new': newdata,
@@ -74,17 +74,17 @@ def getabbdata():
                     'marketTrend': markettrend})
 @app.route('/schinder', methods=['GET'])
 def getschinderdata():
-    newdata = processing.getNumberOfRows("..//new/NewKeywords.xls", "Schneider.csv");
-    techdata1 = processing.getNumberOfRows("..//technologyCompany/Schneider.xls", "SchneiderCyber security")
-    techdata2 = processing.getNumberOfRows("..//technologyCompany/Schneider.xls", "SchneiderDigital Twin")
-    techdata3 = processing.getNumberOfRows("..//technologyCompany/Schneider.xls", "SchneiderData Analytics and AI")
-    techdata4 = processing.getNumberOfRows("..//technologyCompany/Schneider.xls", "SchneiderConnectivityEdge")
-    techdata5 = processing.getNumberOfRows("..//technologyCompany/Schneider.xls", "Schneiderblockchain")
-    techdata6 = processing.getNumberOfRows("..//technologyCompany/Schneider.xls", "SchneiderAutonomous Robots")
-    techdata7 = processing.getNumberOfRows("..//technologyCompany/Schneider.xls", "SchneiderAdditive manufacturing")
+    newdata = processing.getNumberOfRows("..//new/NewKeywords.xls", "Schneider.csv") - 1;
+    techdata1 = processing.getNumberOfRows("..//technologyCompany/Schneider.xls", "SchneiderCyber security") - 1;
+    techdata2 = processing.getNumberOfRows("..//technologyCompany/Schneider.xls", "SchneiderDigital Twin") - 1;
+    techdata3 = processing.getNumberOfRows("..//technologyCompany/Schneider.xls", "SchneiderData Analytics and AI") - 1;
+    techdata4 = processing.getNumberOfRows("..//technologyCompany/Schneider.xls", "SchneiderConnectivityEdge") - 1;
+    techdata5 = processing.getNumberOfRows("..//technologyCompany/Schneider.xls", "Schneiderblockchain") - 1;
+    techdata6 = processing.getNumberOfRows("..//technologyCompany/Schneider.xls", "SchneiderAutonomous Robots") - 1;
+    techdata7 = processing.getNumberOfRows("..//technologyCompany/Schneider.xls", "SchneiderAdditive manufacturing") - 1;
     techdata = techdata1 + techdata2 + techdata3 + techdata4 + techdata5 + techdata6 + techdata7;
-    markettrend1 = processing.getNumberOfRows("..//market/Schneider.xls", "Schneidersecurity")
-    markettrend2 = processing.getNumberOfRows("..//market/Schneider.xls", "SchneiderCollaboration")
+    markettrend1 = processing.getNumberOfRows("..//market/Schneider.xls", "Schneidersecurity") - 1;
+    markettrend2 = processing.getNumberOfRows("..//market/Schneider.xls", "SchneiderCollaboration") - 1;
     markettrend = markettrend1 + markettrend2
 
     return jsonify({'new': newdata,
@@ -93,17 +93,17 @@ def getschinderdata():
 
 @app.route('/rockwell', methods=['GET'])
 def getrockwelldata():
-    newdata = processing.getNumberOfRows("..//new/NewKeywords.xls", "Rockwell.csv");
-    techdata1 = processing.getNumberOfRows("..//technologyCompany/Rockwell.xls", "RockwellCyber security")
-    techdata2 = processing.getNumberOfRows("..//technologyCompany/Rockwell.xls", "RockwellDigital Twin")
-    techdata3 = processing.getNumberOfRows("..//technologyCompany/Rockwell.xls", "RockwellData Analytics and AI")
-    techdata4 = processing.getNumberOfRows("..//technologyCompany/Rockwell.xls", "RockwellConnectivityEdge")
-    techdata5 = processing.getNumberOfRows("..//technologyCompany/Rockwell.xls", "Rockwellblockchain")
-    techdata6 = processing.getNumberOfRows("..//technologyCompany/Rockwell.xls", "RockwellAutonomous Robots")
-    techdata7 = processing.getNumberOfRows("..//technologyCompany/Rockwell.xls", "RockwellAdditive manufacturing")
+    newdata = processing.getNumberOfRows("..//new/NewKeywords.xls", "Rockwell.csv") - 1;
+    techdata1 = processing.getNumberOfRows("..//technologyCompany/Rockwell.xls", "RockwellCyber security") - 1;
+    techdata2 = processing.getNumberOfRows("..//technologyCompany/Rockwell.xls", "RockwellDigital Twin") - 1;
+    techdata3 = processing.getNumberOfRows("..//technologyCompany/Rockwell.xls", "RockwellData Analytics and AI") - 1;
+    techdata4 = processing.getNumberOfRows("..//technologyCompany/Rockwell.xls", "RockwellConnectivityEdge") - 1;
+    techdata5 = processing.getNumberOfRows("..//technologyCompany/Rockwell.xls", "Rockwellblockchain") - 1;
+    techdata6 = processing.getNumberOfRows("..//technologyCompany/Rockwell.xls", "RockwellAutonomous Robots") - 1;
+    techdata7 = processing.getNumberOfRows("..//technologyCompany/Rockwell.xls", "RockwellAdditive manufacturing") - 1;
     techdata = techdata1 + techdata2 + techdata3 + techdata4 + techdata5 + techdata6 + techdata7;
-    markettrend1 = processing.getNumberOfRows("..//market/Rockwell.xls", "Rockwellsecurity")
-    markettrend2 = processing.getNumberOfRows("..//market/Rockwell.xls", "RockwellCollaboration")
+    markettrend1 = processing.getNumberOfRows("..//market/Rockwell.xls", "Rockwellsecurity") - 1;
+    markettrend2 = processing.getNumberOfRows("..//market/Rockwell.xls", "RockwellCollaboration") - 1;
     markettrend = markettrend1 + markettrend2
 
     return jsonify({'new': newdata,
@@ -112,27 +112,25 @@ def getrockwelldata():
 
 @app.route('/siemensdetails', methods=['GET'])
 def getsiemensdetaildata():
-    domaindata1 = processing.getNumberOfRows("..//DrillDownCompany/Siemens.xls", "SiemensDI")
-    domaindata2 = processing.getNumberOfRows("..//DrillDownCompany/Siemens.xls", "SiemensSI")
-    domaindata3 = processing.getNumberOfRows("..//DrillDownCompany/Siemens.xls", "SiemensMO")
-    domaindata4 = processing.getNumberOfRows("..//DrillDownCompany/Siemens.xls", "SiemensEngg")
-    domaindata5 = processing.getNumberOfRows("..//DrillDownCompany/Siemens.xls", "SiemensHealthcare")
-    techdata1 = processing.getNumberOfRows("..//technologyCompany/Siemens.xls", "SiemensCyber security")
-    techdata2 = processing.getNumberOfRows("..//technologyCompany/Siemens.xls", "SiemensDigital Twin")
-    techdata3 = processing.getNumberOfRows("..//technologyCompany/Siemens.xls", "SiemensData Analytics and AI")
-    techdata4 = processing.getNumberOfRows("..//technologyCompany/Siemens.xls", "SiemensConnectivityEdge")
-    techdata5 = processing.getNumberOfRows("..//technologyCompany/Siemens.xls", "Siemensblockchain")
-    techdata6 = processing.getNumberOfRows("..//technologyCompany/Siemens.xls", "SiemensAutonomous Robots")
-    techdata7 = processing.getNumberOfRows("..//technologyCompany/Siemens.xls", "SiemensAdditive manufacturing")
+    domaindata1 = processing.getNumberOfRows("..//DrillDownCompany/Siemens.xls", "SiemensDI") - 1;
+    domaindata2 = processing.getNumberOfRows("..//DrillDownCompany/Siemens.xls", "SiemensSI") - 1;
+    domaindata3 = processing.getNumberOfRows("..//DrillDownCompany/Siemens.xls", "SiemensMO") - 1;
+    domaindata4 = processing.getNumberOfRows("..//DrillDownCompany/Siemens.xls", "SiemensEngg") - 1;
+    techdata1 = processing.getNumberOfRows("..//technologyCompany/Siemens.xls", "SiemensCyber security") - 1;
+    techdata2 = processing.getNumberOfRows("..//technologyCompany/Siemens.xls", "SiemensDigital Twin") - 1;
+    techdata3 = processing.getNumberOfRows("..//technologyCompany/Siemens.xls", "SiemensData Analytics and AI") - 1;
+    techdata4 = processing.getNumberOfRows("..//technologyCompany/Siemens.xls", "SiemensConnectivityEdge") - 1;
+    techdata5 = processing.getNumberOfRows("..//technologyCompany/Siemens.xls", "Siemensblockchain") - 1;
+    techdata6 = processing.getNumberOfRows("..//technologyCompany/Siemens.xls", "SiemensAutonomous Robots") - 1;
+    techdata7 = processing.getNumberOfRows("..//technologyCompany/Siemens.xls", "SiemensAdditive manufacturing") - 1;
 
-    markettrend1 = processing.getNumberOfRows("..//market/Siemens.xls", "Siemenssecurity")
-    markettrend2 = processing.getNumberOfRows("..//market/Siemens.xls", "SiemensCollaboration")
+    markettrend1 = processing.getNumberOfRows("..//market/Siemens.xls", "Siemenssecurity") - 1;
+    markettrend2 = processing.getNumberOfRows("..//market/Siemens.xls", "SiemensCollaboration") - 1;
 
     return jsonify({'di': domaindata1,
                     'si': domaindata2,
                     'mo': domaindata3,
                     'engg': domaindata4,
-                    'health': domaindata5,
                     'cs': techdata1 ,
                     'dt': techdata2,
                     'da': techdata3,
@@ -145,27 +143,25 @@ def getsiemensdetaildata():
 
 @app.route('/abbdetails', methods=['GET'])
 def getabbdetaildata():
-    domaindata1 = processing.getNumberOfRows("..//DrillDownCompany/ABB.xls", "ABBDI")
-    domaindata2 = processing.getNumberOfRows("..//DrillDownCompany/ABB.xls", "ABBSI")
-    domaindata3 = processing.getNumberOfRows("..//DrillDownCompany/ABB.xls", "ABBMO")
-    domaindata4 = processing.getNumberOfRows("..//DrillDownCompany/ABB.xls", "ABBEngg")
-    domaindata5 = processing.getNumberOfRows("..//DrillDownCompany/ABB.xls", "ABBHealthcare")
-    techdata1 = processing.getNumberOfRows("..//technologyCompany/ABB.xls", "ABBCyber security")
-    techdata2 = processing.getNumberOfRows("..//technologyCompany/ABB.xls", "ABBDigital Twin")
-    techdata3 = processing.getNumberOfRows("..//technologyCompany/ABB.xls", "ABBData Analytics and AI")
-    techdata4 = processing.getNumberOfRows("..//technologyCompany/ABB.xls", "ABBConnectivityEdge")
-    techdata5 = processing.getNumberOfRows("..//technologyCompany/ABB.xls", "ABBblockchain")
-    techdata6 = processing.getNumberOfRows("..//technologyCompany/ABB.xls", "ABBAutonomous Robots")
-    techdata7 = processing.getNumberOfRows("..//technologyCompany/ABB.xls", "ABBAdditive manufacturing")
+    domaindata1 = processing.getNumberOfRows("..//DrillDownCompany/ABB.xls", "ABBDI") - 1;
+    domaindata2 = processing.getNumberOfRows("..//DrillDownCompany/ABB.xls", "ABBSI") - 1;
+    domaindata3 = processing.getNumberOfRows("..//DrillDownCompany/ABB.xls", "ABBMO") - 1;
+    domaindata4 = processing.getNumberOfRows("..//DrillDownCompany/ABB.xls", "ABBEngg") - 1;
+    techdata1 = processing.getNumberOfRows("..//technologyCompany/ABB.xls", "ABBCyber security") - 1;
+    techdata2 = processing.getNumberOfRows("..//technologyCompany/ABB.xls", "ABBDigital Twin") - 1;
+    techdata3 = processing.getNumberOfRows("..//technologyCompany/ABB.xls", "ABBData Analytics and AI") - 1;
+    techdata4 = processing.getNumberOfRows("..//technologyCompany/ABB.xls", "ABBConnectivityEdge") - 1;
+    techdata5 = processing.getNumberOfRows("..//technologyCompany/ABB.xls", "ABBblockchain") - 1;
+    techdata6 = processing.getNumberOfRows("..//technologyCompany/ABB.xls", "ABBAutonomous Robots") - 1;
+    techdata7 = processing.getNumberOfRows("..//technologyCompany/ABB.xls", "ABBAdditive manufacturing") - 1;
 
-    markettrend1 = processing.getNumberOfRows("..//market/ABB.xls", "ABBsecurity")
-    markettrend2 = processing.getNumberOfRows("..//market/ABB.xls", "ABBCollaboration")
+    markettrend1 = processing.getNumberOfRows("..//market/ABB.xls", "ABBsecurity") - 1;
+    markettrend2 = processing.getNumberOfRows("..//market/ABB.xls", "ABBCollaboration") - 1;
 
     return jsonify({'di': domaindata1,
                     'si': domaindata2,
                     'mo': domaindata3,
                     'engg': domaindata4,
-                    'health': domaindata5,
                     'cs': techdata1,
                     'dt': techdata2,
                     'da': techdata3,
@@ -178,27 +174,25 @@ def getabbdetaildata():
 
 @app.route('/schinderdetails', methods=['GET'])
 def getschinderdetaildata():
-    domaindata1 = processing.getNumberOfRows("..//DrillDownCompany/Schneider.xls", "SchneiderDI")
-    domaindata2 = processing.getNumberOfRows("..//DrillDownCompany/Schneider.xls", "SchneiderSI")
-    domaindata3 = processing.getNumberOfRows("..//DrillDownCompany/Schneider.xls", "SchneiderMO")
-    domaindata4 = processing.getNumberOfRows("..//DrillDownCompany/Schneider.xls", "SchneiderEngg")
-    domaindata5 = processing.getNumberOfRows("..//DrillDownCompany/Schneider.xls", "SchneiderHealthcare")
-    techdata1 = processing.getNumberOfRows("..//technologyCompany/Schneider.xls", "SchneiderCyber security")
-    techdata2 = processing.getNumberOfRows("..//technologyCompany/Schneider.xls", "SchneiderDigital Twin")
-    techdata3 = processing.getNumberOfRows("..//technologyCompany/Schneider.xls", "SchneiderData Analytics and AI")
-    techdata4 = processing.getNumberOfRows("..//technologyCompany/Schneider.xls", "SchneiderConnectivityEdge")
-    techdata5 = processing.getNumberOfRows("..//technologyCompany/Schneider.xls", "Schneiderblockchain")
-    techdata6 = processing.getNumberOfRows("..//technologyCompany/Schneider.xls", "SchneiderAutonomous Robots")
-    techdata7 = processing.getNumberOfRows("..//technologyCompany/Schneider.xls", "SchneiderAdditive manufacturing")
+    domaindata1 = processing.getNumberOfRows("..//DrillDownCompany/Schneider.xls", "SchneiderDI") - 1;
+    domaindata2 = processing.getNumberOfRows("..//DrillDownCompany/Schneider.xls", "SchneiderSI") - 1;
+    domaindata3 = processing.getNumberOfRows("..//DrillDownCompany/Schneider.xls", "SchneiderMO") - 1;
+    domaindata4 = processing.getNumberOfRows("..//DrillDownCompany/Schneider.xls", "SchneiderEngg") - 1;
+    techdata1 = processing.getNumberOfRows("..//technologyCompany/Schneider.xls", "SchneiderCyber security") - 1;
+    techdata2 = processing.getNumberOfRows("..//technologyCompany/Schneider.xls", "SchneiderDigital Twin") - 1;
+    techdata3 = processing.getNumberOfRows("..//technologyCompany/Schneider.xls", "SchneiderData Analytics and AI") - 1;
+    techdata4 = processing.getNumberOfRows("..//technologyCompany/Schneider.xls", "SchneiderConnectivityEdge") - 1;
+    techdata5 = processing.getNumberOfRows("..//technologyCompany/Schneider.xls", "Schneiderblockchain") - 1;
+    techdata6 = processing.getNumberOfRows("..//technologyCompany/Schneider.xls", "SchneiderAutonomous Robots") - 1;
+    techdata7 = processing.getNumberOfRows("..//technologyCompany/Schneider.xls", "SchneiderAdditive manufacturing") - 1;
 
-    markettrend1 = processing.getNumberOfRows("..//market/Schneider.xls", "Schneidersecurity")
-    markettrend2 = processing.getNumberOfRows("..//market/Schneider.xls", "SchneiderCollaboration")
+    markettrend1 = processing.getNumberOfRows("..//market/Schneider.xls", "Schneidersecurity") - 1;
+    markettrend2 = processing.getNumberOfRows("..//market/Schneider.xls", "SchneiderCollaboration") - 1;
 
     return jsonify({'di': domaindata1,
                     'si': domaindata2,
                     'mo': domaindata3,
                     'engg': domaindata4,
-                    'health': domaindata5,
                     'cs': techdata1,
                     'dt': techdata2,
                     'da': techdata3,
@@ -211,27 +205,25 @@ def getschinderdetaildata():
 
 @app.route('/rockwelldetails', methods=['GET'])
 def getrockwelldetaildata():
-    domaindata1 = processing.getNumberOfRows("..//DrillDownCompany/Rockwell.xls", "RockwellDI")
-    domaindata2 = processing.getNumberOfRows("..//DrillDownCompany/Rockwell.xls", "RockwellSI")
-    domaindata3 = processing.getNumberOfRows("..//DrillDownCompany/Rockwell.xls", "RockwellMO")
-    domaindata4 = processing.getNumberOfRows("..//DrillDownCompany/Rockwell.xls", "RockwellEngg")
-    domaindata5 = processing.getNumberOfRows("..//DrillDownCompany/Rockwell.xls", "RockwellHealthcare")
-    techdata1 = processing.getNumberOfRows("..//technologyCompany/Rockwell.xls", "RockwellCyber security")
-    techdata2 = processing.getNumberOfRows("..//technologyCompany/Rockwell.xls", "RockwellDigital Twin")
-    techdata3 = processing.getNumberOfRows("..//technologyCompany/Rockwell.xls", "RockwellData Analytics and AI")
-    techdata4 = processing.getNumberOfRows("..//technologyCompany/Rockwell.xls", "RockwellConnectivityEdge")
-    techdata5 = processing.getNumberOfRows("..//technologyCompany/Rockwell.xls", "Rockwellblockchain")
-    techdata6 = processing.getNumberOfRows("..//technologyCompany/Rockwell.xls", "RockwellAutonomous Robots")
-    techdata7 = processing.getNumberOfRows("..//technologyCompany/Rockwell.xls", "RockwellAdditive manufacturing")
+    domaindata1 = processing.getNumberOfRows("..//DrillDownCompany/Rockwell.xls", "RockwellDI") - 1;
+    domaindata2 = processing.getNumberOfRows("..//DrillDownCompany/Rockwell.xls", "RockwellSI") - 1;
+    domaindata3 = processing.getNumberOfRows("..//DrillDownCompany/Rockwell.xls", "RockwellMO") - 1;
+    domaindata4 = processing.getNumberOfRows("..//DrillDownCompany/Rockwell.xls", "RockwellEngg") - 1;
+    techdata1 = processing.getNumberOfRows("..//technologyCompany/Rockwell.xls", "RockwellCyber security") - 1;
+    techdata2 = processing.getNumberOfRows("..//technologyCompany/Rockwell.xls", "RockwellDigital Twin") - 1;
+    techdata3 = processing.getNumberOfRows("..//technologyCompany/Rockwell.xls", "RockwellData Analytics and AI") - 1;
+    techdata4 = processing.getNumberOfRows("..//technologyCompany/Rockwell.xls", "RockwellConnectivityEdge") - 1;
+    techdata5 = processing.getNumberOfRows("..//technologyCompany/Rockwell.xls", "Rockwellblockchain") - 1;
+    techdata6 = processing.getNumberOfRows("..//technologyCompany/Rockwell.xls", "RockwellAutonomous Robots") - 1;
+    techdata7 = processing.getNumberOfRows("..//technologyCompany/Rockwell.xls", "RockwellAdditive manufacturing") - 1;
 
-    markettrend1 = processing.getNumberOfRows("..//market/Rockwell.xls", "Rockwellsecurity")
-    markettrend2 = processing.getNumberOfRows("..//market/Rockwell.xls", "RockwellCollaboration")
+    markettrend1 = processing.getNumberOfRows("..//market/Rockwell.xls", "Rockwellsecurity") - 1;
+    markettrend2 = processing.getNumberOfRows("..//market/Rockwell.xls", "RockwellCollaboration") - 1;
 
     return jsonify({'di': domaindata1,
                     'si': domaindata2,
                     'mo': domaindata3,
                     'engg': domaindata4,
-                    'health': domaindata5,
                     'cs': techdata1,
                     'dt': techdata2,
                     'da': techdata3,
