@@ -121,14 +121,20 @@ def newdomaindrill():
               "Green Hydrogen", "Blue hydrogen", "blue hydrogen",
               "Blue Hydrogen", "Battery Storage", "battery storage", "Hydro", "hydro",
               "Digital Service", "digital service", "I&C", "Coal", "coal", "Gas", "gas", "Thermal", "thermal",
-              "Combined Captive", "CCPP", "combined captive", "O&G", "APM",  "renewable", "Renewable"
+              "combined captive power", "CCPP", "Combined Captive Power", "O&G", "APM",  "renewable", "Renewable","hybrid","Hybrid","biomethane","Biomethane","pv","green energy", "Green Energy","clean energy","Clean Energy","waste", 
+              "Waste","hydropower","Hydropower","windpower","Windpower","offshore","Offshore","OffShore"
+              "sustainability","Sustainability","WindPower","energy-as-service","Energy-As-Service"
          ]
 
     terms1 = [ "PtX", "Hydrogen", "hydrogen", "Power-To-X", "Storage", "storage", "Green hydrogen", "green hydrogen", "Green Hydrogen", "Blue hydrogen", "blue hydrogen",
 "Blue Hydrogen", "Battery Storage", "battery storage", "Hydro", "hydro", "Water", "water", "Wind Turbines", "wind", "Wind", "wind turbines",
-               "Photovoltaic", "Solar", "photovoltaic", "solar", "renewable", "Renewable"]
-    terms2 = ["Digital Service", "digital service", "I&C", "Coal", "coal", "Gas", "gas", "Thermal", "thermal", "Combined Captive", "CCPP", "combined captive",
-              "Energy", "energy", "power", "Power"]
+               "Photovoltaic", "Solar", "photovoltaic", "solar", "renewable", "Renewable",
+             "hybrid","Hybrid","biomethane","Biomethane","pv","green energy", "Green Energy","clean energy","Clean Energy","waste", 
+              "Waste","hydropower","Hydropower","windpower","Windpower","offshore","Offshore","OffShore"
+              "sustainability","Sustainability","WindPower"]
+    
+    terms2 = ["Digital Service", "digital service", "I&C", "Coal", "coal", "Gas", "gas", "Thermal", "thermal", "Combined Captive Power", "CCPP", "combined captive power",
+              "Energy", "energy", "power", "Power","energy-as-service","Energy-As-Service"]
     terms3 = ["Oil & Gas", "oil & gas", "O&G"]
     terms4 = ["Process Automation", "SCADA", "Asset Performance Management",  "process automation", "scada",  "asset performance management", "APM"]
 
