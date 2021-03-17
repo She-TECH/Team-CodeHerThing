@@ -19,27 +19,28 @@ import os.path
 from spacy.util import minibatch, compounding
 def segregateCompanyData():
     isDataSegregated = False;
-    isPathExist = os.path.exists('D:\\Trainings\\Hackathon\\repo\\Team-CodeHerThing\\company\\Siemens.csv');
+   # 'D:\\Trainings\\Hackathon\\repo\\Team-CodeHerThing\\company\\Siemens.csv'
+    isPathExist = os.path.exists("..//company//Siemens.csv");
     keywords = {"Siemens", "Emerson", "Honeywell", "ABB"}  # all your keywords
     if not isPathExist:
-        with open('D:\\Trainings\\Hackathon\\repo\\Team-CodeHerThing\\company\\Siemens.csv', 'a', newline='',
+        with open("..//company//Siemens.csv", 'a', newline='',
         encoding="utf-8") as fd:
             newFileWriter = csv.writer(fd)
             newFileWriter.writerow(['Summary', 'URL', 'Snippet'])
-        with open('D:\\Trainings\\Hackathon\\repo\\Team-CodeHerThing\\company\\ABB.csv', 'a', newline='',
+        with open("..//company//ABB.csv", 'a', newline='',
         encoding="utf-8") as fd:
             newFileWriter = csv.writer(fd)
             newFileWriter.writerow(['Summary', 'URL', 'Snippet'])
-        with open('D:\\Trainings\\Hackathon\\repo\\Team-CodeHerThing\\company\\Schneider.csv', 'a', newline='',
+        with open("..//company//Schneider.csv", 'a', newline='',
         encoding="utf-8") as fd:
             newFileWriter = csv.writer(fd)
             newFileWriter.writerow(['Summary', 'URL', 'Snippet'])
-        with open('D:\\Trainings\\Hackathon\\repo\\Team-CodeHerThing\\company\\Rockwell.csv', 'a', newline='',
+        with open("..//company//Rockwell.csv", 'a', newline='',
         encoding="utf-8") as fd:
             newFileWriter = csv.writer(fd)
             newFileWriter.writerow(['Summary', 'URL', 'Snippet'])
-
-    path = r"D:\\Trainings\\Hackathon\\repo\\Team-CodeHerThing\\NewData\\*.csv"
+#r"D:\\Trainings\\Hackathon\\repo\\Team-CodeHerThing\\NewData\\*.csv"
+    path =  "..//NewData//*.csv"
     for fname in glob.glob(path):
         isDataSegregated = True;
         df = pd.read_csv(fname, sep=",")
@@ -47,29 +48,29 @@ def segregateCompanyData():
             for keyword in keywords:
                 if int(keyword in df['Summary'][i]) == 1:
                     if keyword == "Siemens":
-                        with open('D:\\Trainings\\Hackathon\\repo\\Team-CodeHerThing\\company\\Siemens.csv', 'a',
+                        with open("..//company//Siemens.csv", 'a',
                         newline='', encoding="utf-8") as fd:
                             newFileWriter = csv.writer(fd)
                             newFileWriter.writerow([df['Summary'][i], df['URL'][i], df['Snippet'][i]])
                     elif keyword == "ABB":
-                        with open('D:\\Trainings\\Hackathon\\repo\\Team-CodeHerThing\\company\\ABB.csv', 'a', newline='',
+                        with open("..//company//ABB.csv", 'a', newline='',
                         encoding="utf-8") as fd:
                             newFileWriter = csv.writer(fd)
                             newFileWriter.writerow([df['Summary'][i], df['URL'][i], df['Snippet'][i]])
                     elif keyword == "Emerson":
-                        with open('D:\\Trainings\\Hackathon\\repo\\Team-CodeHerThing\\company\\Schneider.csv', 'a',
+                        with open("..//company//Schneider.csv", 'a',
                         newline='', encoding="utf-8") as fd:
                             newFileWriter = csv.writer(fd)
                             newFileWriter.writerow([df['Summary'][i], df['URL'][i], df['Snippet'][i]])
                     elif keyword == "Honeywell":
-                        with open('D:\\Trainings\\Hackathon\\repo\\Team-CodeHerThing\\company\\Rockwell.csv', 'a',
+                        with open("..//company//Rockwell.csv", 'a',
                         newline='', encoding="utf-8") as fd:
                             newFileWriter = csv.writer(fd)
                             newFileWriter.writerow([df['Summary'][i], df['URL'][i], df['Snippet'][i]])
     return isDataSegregated
 
 def processnewproductdata():
-    path = r"D:\\Trainings\\Hackathon\\repo\\Team-CodeHerThing\\company\\*.csv"
+    path = "..//company//*.csv"
     keywords_new = {"new", "introduce", "announced", "launched", "acquire", "implement", "Implements", "release"}
         #"DCS", "Distributed Control System", "Distributed Controlsystem", "dcs", "distributed control system"  # all your keywords
 
@@ -173,6 +174,7 @@ def newdomaindrill():
             matches = matcher(doc)
             for match_id, start, end in matches:
                 span = doc[start:end]
+                print(doc)
                 print(span.text)
                 if (span.text in terms1):
                     col = 0

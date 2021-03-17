@@ -23,8 +23,8 @@ def markettrendprocessing():
     # Only run nlp.make_doc to speed things up
     patterns = [nlp.make_doc(text) for text in termMarket]
     matcher.add("TerminologyList", None, *patterns)
-
-    path = r"D:\\Trainings\\Hackathon\\repo\\Team-CodeHerThing\\company\\*.csv"
+#"D:\\Trainings\\Hackathon\\repo\\Team-CodeHerThing\\company\\*.csv"
+    path = r"..//company//*.csv"
     for fname in glob.glob(path):
         fileName_absolute = os.path.basename(fname)
         df = pd.read_csv(fname, sep=",")

@@ -18,7 +18,7 @@ def segregatetechnology() :
     termTechno = ["Cybersecurity", "Security", "vulnerabilities", "malware", "virus","hack","ransomware","Denial of Service", "DoS","SQL Injection","Network Security","Hijack","CSRF","Digital Signature","XSS","Cross Site Scripting","SSL","TLS","OWASP","IEC62443", "Vulnerabilities", "Malware", "Virus", "Hack", "Ransomeware", "hijack",
               "Digital Twin", "Simulation"
               "Analytics", "AI", "Artificial Intelligence", "Machine Learning",
-              "IOT", "Cloud", "Edge", "Wireless", "Internet of Things", "IIOT", "Protocol", "IoT",
+              "IOT", "Cloud", "Edge", "Wireless", "Internet of Things", "IIOT", "Protocol", "IoT", "IIoT",
               "Blockchain", "Cryptography"
               "Robotics",
                "cybersecurity", "security",
@@ -33,7 +33,7 @@ def segregatetechnology() :
     termTechno1 = ["Cybersecurity", "Security", "cybersecurity", "security", "vulnerabilities", "malware", "virus","hack","ransomware","Denial of Service", "DoS","SQL Injection","Network Security","Hijack","CSRF","Digital Signature","XSS","Cross Site Scripting","SSL","TLS","OWASP","IEC62443", "Vulnerabilities", "Malware", "Virus", "Hack", "Ransomeware", "hijack"]
     termTechno2 = ["Digital Twin", "digital twin", "Simulation", "simulation"]
     termTechno3 = ["Analytics", "AI", "Artificial Intelligence", "Machine Learning", "analytics",  "artificial intelligence", "machine learning","smart solution","Smart Solution"]
-    termTechno4 = ["IOT", "Cloud", "Edge", "Wireless", "IoT","Internet of Things", "IIOT", "Protocols", "cloud", "edge", "wireless", "internet of things",  "protocols","data center","Data Center","cloud services","Cloud Services","connectivity","Connectivity"]
+    termTechno4 = ["IOT", "Cloud", "Edge", "Wireless", "IoT","Internet of Things", "IIOT", "IIoT", "Protocols", "cloud", "edge", "wireless", "internet of things",  "protocols","data center","Data Center","cloud services","Cloud Services","connectivity","Connectivity"]
     termTechno5 = ["blockchain", "Blockchain", "cryptography", "Cryptography"]
     termTechno6 = ["robotics", "Robotics"]
     termTechno7 = ["I/O Module", "Controller", "controller", "Server", "server", "Virtualization", "virtualization", "Virtual", "virtual", "Modular", "modular","Container", "container", "containerization", "Containerization", "IO Module","Vm","VM","Virtual Machine","Virtual machine"]
@@ -43,7 +43,8 @@ def segregatetechnology() :
     patterns = [nlp.make_doc(text) for text in termTechno]
     matcher.add("TerminologyList", None, *patterns)
 
-    path = r"D:\\Trainings\\Hackathon\\repo\\Team-CodeHerThing\\company\\*.csv"
+    # "D:\\Trainings\\Hackathon\\repo\\Team-CodeHerThing\\company\\*.csv"
+    path = r"..//company//*.csv"
     for fname in glob.glob(path):
         fileName_absolute = os.path.basename(fname)
         df = pd.read_csv(fname, sep=",")
